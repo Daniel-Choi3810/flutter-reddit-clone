@@ -8,7 +8,8 @@ class CreateCommunityScreen extends ConsumerStatefulWidget {
   const CreateCommunityScreen({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _CreateCommunityScreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _CreateCommunityScreenState();
 }
 
 class _CreateCommunityScreenState extends ConsumerState<CreateCommunityScreen> {
@@ -50,7 +51,7 @@ class _CreateCommunityScreenState extends ConsumerState<CreateCommunityScreen> {
                     TextField(
                       controller: communityNameController,
                       decoration: const InputDecoration(
-                        hintText: 'r/Community_name',
+                        hintText: 'My Community',
                         filled: true,
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.all(18),

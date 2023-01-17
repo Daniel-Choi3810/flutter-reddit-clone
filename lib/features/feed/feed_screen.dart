@@ -17,23 +17,31 @@ class FeedScreen extends ConsumerWidget {
 
     if (!isGuest) {
       return ref.watch(userCommunitiesProvider).when(
-            data: (communities) => ref.watch(userPostsProvider(communities)).when(
-                  data: (data) {
-                    return ListView.builder(
-                      itemCount: data.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final post = data[index];
-                        return PostCard(post: post);
+            data: (communities) =>
+                ref.watch(userPostsProvider(communities)).when(
+                      data: (data) {
+                        return Column(
+                          children: [
+                            //  GridView.builder(gridDelegate: gridDelegate, itemBuilder: itemBuilder)
+                            Expanded(
+                              child: ListView.builder(
+                                itemCount: data.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  final post = data[index];
+                                  return PostCard(post: post);
+                                },
+                              ),
+                            ),
+                          ],
+                        );
                       },
-                    );
-                  },
-                  error: (error, stackTrace) {
-                    return ErrorText(
-                      error: error.toString(),
-                    );
-                  },
-                  loading: () => const Loader(),
-                ),
+                      error: (error, stackTrace) {
+                        return ErrorText(
+                          error: error.toString(),
+                        );
+                      },
+                      loading: () => const Loader(),
+                    ),
             error: (error, stackTrace) => ErrorText(
               error: error.toString(),
             ),

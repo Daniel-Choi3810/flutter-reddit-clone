@@ -47,7 +47,7 @@ class _MyAppState extends ConsumerState<MyApp> {
           data: (data) => MaterialApp.router(
             debugShowCheckedModeBanner: false,
             title: 'Reddit Tutorial',
-            theme: ref.watch(themeNotifierProvider),
+            theme: Pallete.lightModeAppTheme,
             routerDelegate: RoutemasterDelegate(
               routesBuilder: (context) {
                 if (data != null) {

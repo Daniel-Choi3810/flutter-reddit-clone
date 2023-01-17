@@ -53,7 +53,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              showSearch(context: context, delegate: SearchCommunityDelegate(ref));
+              showSearch(
+                  context: context, delegate: SearchCommunityDelegate(ref));
             },
             icon: const Icon(Icons.search),
           ),
@@ -84,11 +85,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               items: const [
                 BottomNavigationBarItem(
                   icon: Icon(Icons.home),
-                  label: '',
+                  label: 'Home',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.add),
-                  label: '',
+                  label: 'Upload',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.favorite),
+                  label: 'Wellness',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.people),
+                  label: 'Community',
                 ),
               ],
               onTap: onPageChanged,

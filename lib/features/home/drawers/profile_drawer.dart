@@ -33,7 +33,7 @@ class ProfileDrawer extends ConsumerWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              'u/${user.name}',
+              user.name,
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
@@ -55,7 +55,8 @@ class ProfileDrawer extends ConsumerWidget {
               onTap: () => logOut(ref),
             ),
             Switch.adaptive(
-              value: ref.watch(themeNotifierProvider.notifier).mode == ThemeMode.dark,
+              value: ref.watch(themeNotifierProvider.notifier).mode ==
+                  ThemeMode.dark,
               onChanged: (val) => toggleTheme(ref),
             ),
           ],
